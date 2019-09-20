@@ -1,0 +1,27 @@
+// ***** Fractal and Gulp Toolkit Tests ***** //
+
+code {
+  color: $color-darkred;
+}
+
+.test-sass {
+  color: $color-green;
+}
+
+.test-sass-lint {
+  cursor: pointer;
+  display: block;
+}
+
+.test-icon {
+  display: inline;
+  padding-right: 1.5em;
+  background-image: url('check-solid.svg' param(--color #{$color-green}));
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 1em;
+}
+
+.test-autoprefixer-basic {
+  user-select: auto;
+}
