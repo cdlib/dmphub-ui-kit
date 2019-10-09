@@ -1,1 +1,0 @@
-Browse the component library using the navigation on the left.

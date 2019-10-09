@@ -1,0 +1,1 @@
+"use strict";var bodytagtest=document.getElementsByTagName("body")[0];bodytagtest.classList.add("js-working");var selectortest=document.querySelector(".test-javascript");selectortest.innerHTML="yes";var arrowFunctionTest=function(t,e){return t*e};console.log(arrowFunctionTest(7,7));
