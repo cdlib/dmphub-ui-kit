@@ -3,6 +3,7 @@ const del = require('del');
 const { src, dest, watch, series, parallel } = require('gulp');
 const minifyCSS = require('gulp-clean-css');
 const eslint = require('gulp-eslint');
+const ghPages = require('gulp-gh-pages');
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
 const sassLint = require('gulp-sass-lint');
@@ -14,7 +15,7 @@ const { exec } = require('child_process');
 
 exports.default = parallel(sasswatch, jswatch, fractalstart, watcher);
 
-exports.build = series(clean, sassbuild, scsslint, jslint, jsbuild, fractalbuild);
+exports.build = series(clean, sassbuild, scsslint, jslint, jsbuild, fractalbuild, githubpages);
 
 // Fractal to Gulp Integration:
 
@@ -103,5 +104,13 @@ function jsbuild(cb) {
   }))
   .pipe(uglify())
   .pipe(dest('./ui-assets/js'))
+  cb();
+}
+
+function githubpages(cb) {
+  return src('./dist/**/*')
+  .pipe(ghPages({
+    branch: 'master'
+  }))
   cb();
 }
