@@ -9,13 +9,13 @@ const sass = require('gulp-sass');
 const sassLint = require('gulp-sass-lint');
 const uglify = require('gulp-uglify');
 const fractal = require('./fractal.js');
-const { exec } = require('child_process');
+const { spawn } = require('child_process');
 
 // Public Tasks:
 
 exports.default = parallel(sasswatch, jswatch, fractalstart, watcher);
 
-exports.build = series(clean, sassbuild, scsslint, jslint, jsbuild, fractalbuild, githubpages);
+exports.build = series(clean, sassbuild, scsslint, jslint, jsbuild, fractalbuild, githubpages, runpercy);
 
 // Fractal to Gulp Integration:
 
@@ -111,4 +111,11 @@ function githubpages(cb) {
   return src('./dist/**/*')
   .pipe(ghPages())
   cb();
+}
+
+function runpercy() {
+  return spawn('npm run percy', {
+    stdio: 'inherit',
+    shell: true
+  });
 }
