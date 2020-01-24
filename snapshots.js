@@ -13,6 +13,12 @@ PercyScript.run(async (page, percySnapshot) => {
 
 PercyScript.run(async (page, percySnapshot) => {
   await page.goto('https://cdlib.github.io/dmphub-ui/components/preview/landing.html');
+  await page.evaluate(() => {
+    const accordionSections = document.querySelectorAll('.c-accordion__section');
+    accordionSections.forEach((el) => {
+      el.innerText = 'Percy ipsum dolor sit amet, consectetur adipisicing elit. In, animi fugiat. Soluta dicta fuga explicabo nihil vero incidunt sapiente magni, qui recusandae deserunt quibusdam vel voluptates ipsam enim perferendis totam.'
+    });
+  });
   await percySnapshot('Landing');
 }, options);
 
