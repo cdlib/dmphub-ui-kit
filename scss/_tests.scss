@@ -1,5 +1,13 @@
 // ***** Fractal and Gulp Toolkit Tests ***** //
 
+%test-placeholder {
+  visibility: visible;
+}
+
+@mixin test-mixin {
+  z-index: 1;
+}
+
 code {
   color: $color-darkred;
 }
@@ -8,14 +16,23 @@ code {
   color: $color-green;
 }
 
-.test-sass-lint {
+.test-sass-linter {
+  @extend %test-placeholder;
+  @include test-mixin;
   cursor: pointer;
   display: block;
+
+  .test-nesting-depth1 {
+
+    &:hover {
+      content: '';
+    }
+  }
 }
 
 .test-icon {
   display: inline;
-  padding-right: 1.5em;
+  padding-inline-end: 1.5em;
   background-image: url('check-solid.svg' param(--color #{$color-green}));
   background-repeat: no-repeat;
   background-position: right center;
@@ -28,14 +45,13 @@ code {
 
 .test-postcsslogical {
   position: relative;
-  border: 1px solid $color-darkred;
   inline-size: 80%;
   block-size: 150px;
+  border: 1px solid $color-darkred;
 
   > div {
     position: absolute;
-    border: 1px solid $color-green;
     inset: 10px 40px 60px 30%;
+    border: 1px solid $color-green;
   }
-
 }

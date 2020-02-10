@@ -4,7 +4,7 @@
   "description": "The toolkit for the dmphub-ui repository",
   "main": "index.html",
   "scripts": {
-    "copy-install": "echo $(tput setaf 4)Copying tool configuration files to dmphub-ui repo$(tput sgr 0)... && cp -prv browserslist-stats.json fractal_subtheme fractal.js gulpfile.js package-lock.json package.json postcss.config.js sass-lint-config.yml snapshots.js ../dmphub-ui/ && echo $(tput setaf 4)Moving over to dmphub-ui repo$(tput sgr 0)... && cd ../dmphub-ui/ && echo $(tput setaf 4)Installing node packages within dmphub-ui repo$(tput sgr 0)... && npm install && echo $(tput setaf 4)Moving back to dmphub-ui-kit repo$(tput sgr 0)... && cd ../dmphub-ui-kit/ && echo $(tput setaf 4)All done.$(tput sgr 0)",
+    "copy-install": "echo $(tput setaf 4)Copying tool configuration files to dmphub-ui repo$(tput sgr 0)... && cp -prv browserslist-stats.json fractal_subtheme fractal.js gulpfile.js package-lock.json package.json postcss.config.js snapshots.js ../dmphub-ui/ && echo $(tput setaf 4)Moving over to dmphub-ui repo$(tput sgr 0)... && cd ../dmphub-ui/ && echo $(tput setaf 4)Installing node packages within dmphub-ui repo$(tput sgr 0)... && npm install && echo $(tput setaf 4)Moving back to dmphub-ui-kit repo$(tput sgr 0)... && cd ../dmphub-ui-kit/ && echo $(tput setaf 4)All done.$(tput sgr 0)",
     "percy": "export PERCY_TOKEN=42d3a3a0e3e443830c2e3cb1c950a7a14cbbe8745a8e63e5634c3fb9133f7aff && percy exec -- node snapshots.js"
   },
   "repository": {
@@ -22,7 +22,6 @@
     "@babel/preset-env": "^7.8.3",
     "@frctl/fractal": "^1.2.1",
     "@frctl/mandelbrot": "^1.2.1",
-    "@percy/script": "^1.0.2",
     "autoprefixer": "^9.7.4",
     "del": "^5.1.0",
     "eslint-config-standard": "^14.1.0",
@@ -39,12 +38,17 @@
     "gulp-gh-pages": "^0.5.4",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
-    "gulp-sass-lint": "^1.4.0",
+    "gulp-stylelint": "^13.0.0",
     "gulp-uglify": "^3.0.2",
     "modern-normalize": "^0.6.0",
     "postcss-import": "^12.0.1",
     "postcss-logical": "^4.0.2",
-    "postcss-svg": "^3.0.0"
+    "postcss-svg": "^3.0.0",
+    "stylelint": "^13.0.0",
+    "stylelint-config-property-sort-order-smacss": "^6.0.0",
+    "stylelint-config-sass-guidelines": "^7.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-use-logical": "^1.1.0"
   },
   "browserslist": [
     "> 2% in my stats"
@@ -70,6 +74,40 @@
         1300
       ],
       "min-height": 1024
+    }
+  },
+  "stylelint": {
+    "defaultSeverity": "warning",
+    "extends": [
+      "stylelint-config-standard",
+      "stylelint-config-sass-guidelines",
+      "stylelint-config-property-sort-order-smacss"
+    ],
+    "plugins": [
+      "stylelint-use-logical"
+    ],
+    "rules": {
+      "at-rule-empty-line-before": null,
+      "csstools/use-logical": "always",
+      "declaration-empty-line-before": [
+        "never",
+        {
+          "ignore": [
+            "after-comment"
+          ]
+        }
+      ],
+      "max-nesting-depth": [
+        1,
+        {
+          "ignore": [
+            "blockless-at-rules",
+            "pseudo-classes"
+          ]
+        }
+      ],
+      "order/properties-alphabetical-order": null,
+      "rule-empty-line-before": "always"
     }
   },
   "dependencies": {}
