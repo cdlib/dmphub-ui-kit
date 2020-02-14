@@ -24,6 +24,7 @@
     "@frctl/mandelbrot": "^1.2.1",
     "autoprefixer": "^9.7.4",
     "del": "^5.1.0",
+    "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-compat": "^3.3.0",
     "eslint-plugin-import": "^2.20.0",
