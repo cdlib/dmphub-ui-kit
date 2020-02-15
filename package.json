@@ -109,7 +109,9 @@
         }
       ],
       "order/properties-alphabetical-order": null,
-      "rule-empty-line-before": "always"
+      "rule-empty-line-before": "always",
+      "selector-class-pattern": null,
+      "selector-no-qualifying-type": null
     }
   },
   "dependencies": {}
