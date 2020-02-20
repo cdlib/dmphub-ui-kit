@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         
-        <loc>https://cdlib.github.io/dmphub-ui-kit/test-two.html</loc>
+        <loc>https://cdlib.github.io/dmphub-ui-kit/components/preview/test-two.html</loc>
     
         
-        <lastmod>2020-02-20T23:49:43.143Z</lastmod>
+        <lastmod>2020-02-20T23:51:42.700Z</lastmod>
     
     </url>
     <url>
         
-        <loc>https://cdlib.github.io/dmphub-ui-kit/test.html</loc>
+        <loc>https://cdlib.github.io/dmphub-ui-kit/components/preview/test.html</loc>
     
         
-        <lastmod>2020-02-20T23:49:42.919Z</lastmod>
+        <lastmod>2020-02-20T23:51:42.583Z</lastmod>
     
     </url>
 </urlset>
