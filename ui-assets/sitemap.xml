@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        
+        <loc>https://cdlib.github.io/dmphub-ui/components/preview/LICENSE</loc>
+    
+        
+        <lastmod>2019-09-20T18:51:27.874Z</lastmod>
+    
+    </url>
+    <url>
+        
+        <loc>https://cdlib.github.io/dmphub-ui/components/preview/README.md</loc>
+    
+        
+        <lastmod>2019-09-20T18:57:51.750Z</lastmod>
+    
+    </url>
+    <url>
+        
+        <loc>https://cdlib.github.io/dmphub-ui/components/preview/browserslist-stats.json</loc>
+    
+        
+        <lastmod>2019-09-20T21:14:24.029Z</lastmod>
+    
+    </url>
+    <url>
+        
+        <loc>https://cdlib.github.io/dmphub-ui/components/preview/fractal.js</loc>
+    
+        
+        <lastmod>2019-09-20T19:13:28.993Z</lastmod>
+    
+    </url>
+    <url>
+        
+        <loc>https://cdlib.github.io/dmphub-ui/components/preview/gulpfile.js</loc>
+    
+        
+        <lastmod>2020-02-19T00:27:00.681Z</lastmod>
+    
+    </url>
+    <url>
+        
+        <loc>https://cdlib.github.io/dmphub-ui/components/preview/package-lock.json</loc>
+    
+        
+        <lastmod>2020-02-18T23:59:17.064Z</lastmod>
+    
+    </url>
+    <url>
+        
+        <loc>https://cdlib.github.io/dmphub-ui/components/preview/package.json</loc>
+    
+        
+        <lastmod>2020-02-18T23:59:16.788Z</lastmod>
+    
+    </url>
+    <url>
+        
+        <loc>https://cdlib.github.io/dmphub-ui/components/preview/postcss.config.js</loc>
+    
+        
+        <lastmod>2020-01-13T21:49:33.058Z</lastmod>
+    
+    </url>
+    <url>
+        
+        <loc>https://cdlib.github.io/dmphub-ui/components/preview/snapshots.js</loc>
+    
+        
+        <lastmod>2020-01-25T00:06:26.659Z</lastmod>
+    
+    </url>
+</urlset>
