@@ -93,18 +93,48 @@
 
 <h3>Verifying File Compilation</h3>
 
-<p>Confirm that /dist/ is created at root. If already created from previous build, confirm that folder's existing build files get deleted before new build files are added. Check that all files in /dist/ contain the same "Date Modified" date/time as when 'gulp build' was run.</p>
+<p>Confirm that /dist/ is created at root. If already created from previous build, confirm that folder's existing build files got deleted before the new build files were added. Check that all files in /dist/ contain the same "Date Modified" date/time as when 'gulp build' was run.</p>
 
 <h3>Verifying Error Reporting</h3>
 
 <p>Confirm that the same Sass and JavaScript errors presented from the 'Gulp' task above were also generated in the console for the build task.</p>
-
-<h3>Verifying UI Library Build in Browser</h3>
-
-<p>Open index.html in a browser. Confirm that the CDLIB UI Library's UI and content matches exactly that of the 'Gulp' task.</p>
 
 <h3>Verifying Asset File Minification</h3>
 
 <p>Confirm that /dist/ui-assets/css/main.css is minified without any sourcemaps.</p>
 
 <p>Confirm that /dist/ui-assets/js/main.js is minified without any sourcemaps.</p>
+
+<h3>Verifying Accessibility Testing</h3>
+
+<p>This is an <code>&lt;input&gt;</code> tag missing a label:</p>
+
+<input type="text" class="test-input-missing-label">
+
+<p>This should trigger the following two accessibility errors via the <a href="https://github.com/pa11y/pa11y-ci">pa11y-ci</a> plugin in the terminal:</p>
+
+<pre>
+  <samp>
+  • This textinput element does not have a name available to an accessibility
+   API. Valid names are: label element, title undefined, aria-label undefined,
+   aria-labelledby undefined.
+
+  (html > body > input)
+
+  &lt;input type="text" class="test-input-missing-label"&gt;
+
+  • This form field should be labelled in some way. Use the label element
+   (either with a "for" attribute or wrapped around the form field), or
+   "title", "aria-label" or "aria-labelledby" attributes as appropriate.
+
+  (html > body > input)
+
+  &lt;input type="text" class="test-input-missing-label"&gt;
+  </samp>
+</pre>
+
+<p>The "Other Page" in this UI Library also contains an <code>&lt;input&gt;</code> tag missing a label, but this page should be skipped during the accessibility testing.</p>
+
+<h3>Verifying UI Library Published on GitHub Pages</h3>
+
+<p>Confirm that the UI Library was published to the GitHub Pages URL: <a href="https://cdlib.github.io/dmphub-ui-kit">https://cdlib.github.io/dmphub-ui-kit</a>.</p>

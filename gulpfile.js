@@ -7,6 +7,7 @@ const eslint = require('gulp-eslint');
 const ghPages = require('gulp-gh-pages');
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
+const sitemap = require('gulp-sitemap');
 const stylelint = require('gulp-stylelint');
 const uglify = require('gulp-uglify');
 const fractal = require('./fractal.js');
@@ -16,7 +17,9 @@ const { spawn } = require('child_process');
 
 exports.default = parallel(sasswatch, jswatch, fractalstart, watcher);
 
-exports.build = series(clean, sassbuild, scsslint, jslint, jsbuild, fractalbuild, githubpages, runpercy);
+exports.test = series(clean, sassbuild, scsslint, jslint, jsbuild, fractalbuild, makesitemap, startserver, runa11y, stopserver);
+
+exports.build = series(clean, sassbuild, scsslint, jslint, jsbuild, fractalbuild, makesitemap, startserver, runa11y, stopserver, githubpages);
 
 // Fractal to Gulp Integration:
 
@@ -43,6 +46,20 @@ function fractalbuild(cb) {
 }
 
 // General Tasks:
+
+async function startserver() {
+  return spawn('npm run starttestserver', {
+    stdio: 'inherit',
+    shell: true
+  });
+}
+
+async function stopserver() {
+  return spawn('npm run stoptestserver', {
+    stdio: 'inherit',
+    shell: true
+  });
+}
 
 function clean(cb) {
   return del(['./dist/**', './ui-assets/css/sourcemaps'])
@@ -121,4 +138,20 @@ function runpercy() {
     stdio: 'inherit',
     shell: true
   });
+}
+
+function runa11y() {
+  return spawn('npm run a11y', {
+    stdio: 'inherit',
+    shell: true
+  });
+}
+
+function makesitemap() {
+  return src('./dist/components/preview/*.html')
+  .pipe(sitemap({
+    siteUrl: 'http://localhost:8080/components/preview',
+    noindex: true
+  }))
+  .pipe(dest('./dist'))
 }
