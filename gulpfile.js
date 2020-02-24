@@ -17,9 +17,9 @@ const { spawn } = require('child_process');
 
 exports.default = parallel(sasswatch, jswatch, fractalstart, watcher);
 
-exports.test = series(clean, sassbuild, scsslint, jslint, jsbuild, fractalbuild, makesitemap, startserver, runa11y, stopserver);
+exports.test = series(settestenvironment, clean, sassbuild, scsslint, jslint, jsbuild, fractalbuild, makesitemap, startserver, runa11y, runpercy, stopserver, setdevenvironment);
 
-exports.build = series(clean, sassbuild, scsslint, jslint, jsbuild, fractalbuild, makesitemap, startserver, runa11y, stopserver, githubpages);
+exports.build = series(settestenvironment, clean, sassbuild, scsslint, jslint, jsbuild, fractalbuild, makesitemap, startserver, runa11y, runpercy, stopserver, setdevenvironment, githubpages);
 
 // Fractal to Gulp Integration:
 
@@ -59,6 +59,14 @@ async function stopserver() {
     stdio: 'inherit',
     shell: true
   });
+}
+
+async function setdevenvironment() {
+  return process.env.NODE_ENV = 'development';
+}
+
+async function settestenvironment() {
+  return process.env.NODE_ENV = 'testing';
 }
 
 function clean(cb) {

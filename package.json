@@ -4,7 +4,7 @@
   "description": "The toolkit for the dmphub-ui repository",
   "main": "index.html",
   "scripts": {
-    "copy-install": "echo $(tput setaf 4)Copying tool configuration files to dmphub-ui repo$(tput sgr 0)... && cp -prv browserslist-stats.json fractal_subtheme fractal.js gulpfile.js package-lock.json package.json postcss.config.js snapshots.js ../dmphub-ui/ && echo $(tput setaf 4)Moving over to dmphub-ui repo$(tput sgr 0)... && cd ../dmphub-ui/ && echo $(tput setaf 4)Installing node packages within dmphub-ui repo$(tput sgr 0)... && npm install && echo $(tput setaf 4)Moving back to dmphub-ui-kit repo$(tput sgr 0)... && cd ../dmphub-ui-kit/ && echo $(tput setaf 4)All done.$(tput sgr 0)",
+    "copy-install": "echo $(tput setaf 4)Copying tool configuration files to dmphub-ui repo$(tput sgr 0)... && cp -prv browserslist-stats.json fractal_subtheme fractal.js gulpfile.js package-lock.json package.json postcss.config.js ../dmphub-ui/ && echo $(tput setaf 4)Moving over to dmphub-ui repo$(tput sgr 0)... && cd ../dmphub-ui/ && echo $(tput setaf 4)Installing node packages within dmphub-ui repo$(tput sgr 0)... && npm install && echo $(tput setaf 4)Moving back to dmphub-ui-kit repo$(tput sgr 0)... && cd ../dmphub-ui-kit/ && echo $(tput setaf 4)All done.$(tput sgr 0)",
     "starttestserver": "http-server ./dist/ -c-1 -s",
     "stoptestserver": "pkill http-server",
     "percy": "export PERCY_TOKEN=42d3a3a0e3e443830c2e3cb1c950a7a14cbbe8745a8e63e5634c3fb9133f7aff && percy exec -- node snapshots.js",
@@ -25,6 +25,7 @@
     "@babel/preset-env": "^7.8.3",
     "@frctl/fractal": "^1.2.1",
     "@frctl/mandelbrot": "^1.2.1",
+    "@percy/script": "^1.0.3",
     "autoprefixer": "^9.7.4",
     "del": "^5.1.0",
     "eslint": "^6.8.0",
